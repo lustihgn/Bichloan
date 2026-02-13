@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at center, #0d1b2a 0%, #0a192f 50%, #000814 100%);
+}
+
+/* Canvas pháo hoa */
+#fireworks {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Số năm */
+.year {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 130px;
+  font-weight: bold;
+  color: white;
+  opacity: 0.08;
+  text-shadow: 0 0 25px white;
+  z-index: 1;
+}
+
+/* Tiêu đề */
+.title {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 42px;
+  color: white;
+  text-shadow: 0 0 20px white, 0 0 40px #4cc9f0;
+  animation: glow 2s infinite alternate;
+  z-index: 2;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 15px #4cc9f0; }
+  to { text-shadow: 0 0 40px white; }
+}
+
+/* Nút nhạc */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 22px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Vật rơi */
+.flower {
+  position: absolute;
+  font-size: 34px;
+  cursor: pointer;
+  animation: fall linear forwards;
+  z-index: 3;
+}
+
+@keyframes fall {
+  from { transform: translateY(-60px) rotate(0); }
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.popup-content {
+  background: linear-gradient(#fff, #dbeafe);
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 340px;
+  text-align: center;
+  animation: zoom 0.4s;
+}
+
+.popup-content img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
