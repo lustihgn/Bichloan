@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   overflow: hidden;
@@ -13,7 +14,20 @@ body {
   pointer-events: none;
 }
 
-/* Số năm */
+/* Nền sao tĩnh */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 70% 60%, white, transparent),
+    radial-gradient(1.5px 1.5px at 40% 80%, white, transparent),
+    radial-gradient(1.5px 1.5px at 85% 20%, white, transparent);
+  opacity: 0.6;
+  z-index: 0;
+}
+
 .year {
   position: absolute;
   top: 50%;
@@ -23,11 +37,9 @@ body {
   font-weight: bold;
   color: white;
   opacity: 0.08;
-  text-shadow: 0 0 25px white;
   z-index: 1;
 }
 
-/* Tiêu đề */
 .title {
   position: absolute;
   top: 40px;
@@ -45,31 +57,16 @@ body {
   to { text-shadow: 0 0 40px white; }
 }
 
-/* Nút nhạc */
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 22px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 3;
-}
-
-/* Vật rơi */
-.flower {
+/* ⭐ Sao rơi */
+.star {
   position: absolute;
-  font-size: 34px;
   cursor: pointer;
   animation: fall linear forwards;
-  z-index: 3;
+  z-index: 5;
 }
 
 @keyframes fall {
-  from { transform: translateY(-60px) rotate(0); }
+  from { transform: translateY(-60px) rotate(0deg); }
   to { transform: translateY(110vh) rotate(360deg); }
 }
 
@@ -90,15 +87,9 @@ body {
   border-radius: 20px;
   max-width: 340px;
   text-align: center;
-  animation: zoom 0.4s;
 }
 
 .popup-content img {
   width: 100%;
   border-radius: 15px;
-}
-
-@keyframes zoom {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
 }
